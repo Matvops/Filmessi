@@ -24,7 +24,6 @@ class AuthenticateRequest extends FormRequest
         return [
             "email" => ["required", "email"],
             "password" => ["required", "min:8", "max:32", "regex:/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+$/"],
-            "accept_term" => ["required", "in:true"]
         ];
     }
 
