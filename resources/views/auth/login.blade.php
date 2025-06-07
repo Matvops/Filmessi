@@ -36,13 +36,12 @@
                             <button type="submit" class="btn btn-primary w-100 fw-semibold fs-5">Entrar</button>
                         </div>
                     </fieldset>
-
-                    @if(session('error_authenticate'))
-                        <div class="alert alert-danger my-2 p-2">
-                            <p class="text-danger">{{ session('error_authenticate') }}</p>
-                        </div>
-                    @endif
                 </form>
+                @if(session('error_auth'))
+                    <div class="pt-4 text-center mx-auto m-0">
+                        <p class="text-danger fs-5 d-inline m-0">{{ session('error_auth') }}</p>
+                    </div>
+                @endif
             </div>
         </div>
 
