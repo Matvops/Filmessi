@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthenticateRequest;
-use App\Models\User;
 use App\Services\AuthService;
-use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -37,5 +35,10 @@ class AuthController extends Controller
         }
 
         return redirect()->intended(route('home'));
+    }
+
+    public function logout() {
+        $this->authService->logout();
+        return redirect()->route('login');
     }
 }
