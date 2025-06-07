@@ -42,4 +42,9 @@ class AuthService {
             return Response::getResponse(false, $e->getMessage());
         }
     }
+
+    public function logout(): void
+    {
+        Auth::logout();
+    }
 }
