@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function(){
@@ -11,8 +11,7 @@ Route::middleware('guest')->group(function(){
 
 
 Route::middleware('auth')->group(function(){
-    Route::get('/home', function() {
-        echo json_encode(Auth::user());
-    })->name('home');
     Route::get('/logout', [AuthController::class, 'logout'])->name("logout");
 });
+    
+Route::get('/home', [MainController::class, 'home'])->name('home');
