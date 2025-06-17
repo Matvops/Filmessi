@@ -41,13 +41,63 @@
         </section>
 
         <section class="mt-4 bg-black w-75 mx-auto">
-                <ul class="list-unstyled m-0 p-0 d-flex justify-content-around py-3 bg-dark-blue">
-                    <li class="border-1"><a href="#" class="text-decoration-none text-light fs-4 nav-hover">Lançamentos</a></li>
-                    <li><a href="#" class="text-decoration-none text-light fs-4 nav-hover">Mais Vistos</a></li>
-                    <li><a href="#" class="text-decoration-none text-light fs-4 nav-hover">Em Alta</a></li>
-                </ul>
-            <div>
+            <ul class="list-unstyled m-0 p-0 d-flex justify-content-around py-3 bg-dark-blue">
+                <li class="border-1"><a href="#" class="text-decoration-none text-light fs-4 nav-hover">Lançamentos</a></li>
+                <li><a href="#" class="text-decoration-none text-light fs-4 nav-hover">Mais Vistos</a></li>
+                <li><a href="#" class="text-decoration-none text-light fs-4 nav-hover">Em Alta</a></li>
+            </ul>
+            
 
+            <div id="carouselExample" class="carousel slide mt-4 mb-3">
+                <div class="carousel-inner mx-auto">
+
+                    <div class="carousel-item active">
+                        <div class="d-flex justify-content-around">
+                            @for($i = 0; $i < 4; $i++)
+                                <a href="#">
+                                    <div class="position-relative rounded">
+                                        <div class="w-100 position-absolute z-2 d-flex justify-content-between">
+                                                <p class="text-light fs-4 fw-bold px-3 py-4">{{$movies[$i]->year}}</p>
+                                                @if($movies[$i]->translated)
+                                                    <p class="text-light fs-4 fw-bold px-3 py-4">DUB</p>
+                                                @else
+                                                    <p class="text-light fs-4 fw-bold px-3 py-4">LEG</p>
+                                                @endif
+                                        </div>
+                                        <div class="card-content">
+                                            <img src="{{asset("{$movies[$i]->image_path}")}}" alt="{{$movies[$i]->title}}" class="card-container_image">
+                                        </div>
+                                    </div>
+                                </a>
+                            @endfor
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-around">
+                            @for($i = 1; $i < 5; $i++)
+                                <a href="#">
+                                    <div class="position-relative rounded">
+                                        <div class="w-100 position-absolute z-2 d-flex justify-content-between">
+                                            <p class="text-light fs-4 fw-bold px-3 py-4">{{$movies[$i]->year}}</p>
+                                            @if($movies[$i]->translated)
+                                                <p class="text-light fs-4 fw-bold px-3 py-4">DUB</p>
+                                            @else
+                                                <p class="text-light fs-4 fw-bold px-3 py-4">LEG</p>
+                                            @endif
+                                        </div>
+                                        <img src="{{asset("{$movies[$i]->image_path}")}}" alt="{{$movies[$i]->title}}" class="card-container_image">
+                                    </div>
+                                </a>
+                            @endfor
+                        </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
             </div>
         </section>
     </x-slot:content>
