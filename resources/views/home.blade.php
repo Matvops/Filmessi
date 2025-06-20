@@ -10,6 +10,11 @@
                         <a href="{{ route('login') }}" class="btn btn-primary px-4 py-2 fs-5">Entrar</a>
                     </div>
                 @endguest
+                @auth
+                    <div>
+                        <a href="{{ route('logout') }}" class="btn btn-primary px-4 py-2 fs-5">Sair</a>
+                    </div>
+                @endauth
             </div>
             <nav class="navbar bg-bottom-header">
                 <div class="container-fluid">
