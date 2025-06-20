@@ -13,7 +13,21 @@ class MainService {
        $this->filmRepository = new FilmRepository; 
     }
 
-    public function getNewMovies(){
+    public function getMainMovies() {
+        
+        $movies = [
+            'new' => $this->getNewMovies(),
+            'most_visit' => $this->getMostVisitMovies()
+        ];
+
+        return $movies;
+    }
+
+    private function getNewMovies(){
         return $this->filmRepository->getNewMovies();
+    }
+
+    private function getMostVisitMovies() {
+        return $this->filmRepository->getMostVisitMovies();
     }
 }

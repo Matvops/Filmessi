@@ -14,9 +14,10 @@ class MainController extends Controller
     {
         $this->mainService = $service;
     }
+
     public function home(): View
     {
-        $movies = $this->mainService->getNewMovies();
+        $movies = $this->mainService->getMainMovies();
         return view('home', ['movies' => $movies]);
     }
 }
