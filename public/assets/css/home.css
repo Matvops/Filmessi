@@ -32,7 +32,12 @@ html, body {
     font-family: 'Kantumruy Pro';
 }
 
-.nav-hover:hover {
+.category-button {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+}
+
+.category-button:hover,.nav-hover:hover {
     color: #4B4971 !important;
     transition-property: color;
     transition-duration: 0.2s;
