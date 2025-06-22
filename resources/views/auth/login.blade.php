@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="my-5 px-0">
-                            <a href="#" class="text-light text-opacity-75">Criar conta</a>
+                            <a href="{{ route('register') }}" class="text-light text-opacity-75">Criar conta</a>
                         </div>
 
                         <div class="w-full"> 
@@ -37,9 +37,16 @@
                         </div>
                     </fieldset>
                 </form>
+                
                 @if(session('error_auth'))
                     <div class="pt-4 text-center mx-auto m-0">
                         <p class="text-danger fs-5 d-inline m-0">{{ session('error_auth') }}</p>
+                    </div>
+                @endif
+
+                @if(session('success_auth'))
+                    <div class="pt-4 text-center mx-auto m-0">
+                        <p class="text-success fs-5 d-inline m-0">{{ session('success_auth') }}</p>
                     </div>
                 @endif
             </div>
