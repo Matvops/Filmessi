@@ -12,8 +12,8 @@ class UserRepository {
     public function getUserToAuthentication(string $email): User|null
     {
         return User::where('email', $email)
-                            ->where('accept_term', true)
                             ->where('active', true)
+                            ->whereNotNull('email_verified_at')
                             ->whereNull('deleted_at')
                             ->first();
     }

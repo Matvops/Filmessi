@@ -22,7 +22,6 @@ class UsersTableSeeder extends Seeder
                     'email' => "user$i@gmail.com",
                     'password' => bcrypt("Senha123"),
                     'role' =>  "ADMIN",
-                    'accept_term' => true,
                     'email_verified_at' => Carbon::now(),
                     'active' => true,
                     'created_at' => Carbon::now(),
