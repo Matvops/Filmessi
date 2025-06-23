@@ -46,24 +46,17 @@
         </section>
 
         <section class="mt-4 bg-black w-75 mx-auto">
-            <ul id="menu-categoria" class="list-unstyled m-0 p-0 d-flex justify-content-around py-3 bg-dark-blue">
+            <ul id="menu-categorias" class="list-unstyled m-0 p-0 d-flex justify-content-around py-3 bg-dark-blue">
                 <li><button class="text-decoration-none text-light fs-4 category-button" data-target='new'>Lançamentos</button></li>
-                <li><button class="text-decoration-none text-light fs-4 category-button" data-target='most-visit'>Mais Vistos</button></li>
+                <li><button class="text-decoration-none text-light fs-4 category-button" data-target='most_visit'>Mais Vistos</button></li>
             </ul>
             
 
             <div id="carouselExample" class="carousel slide mt-4 mb-3">
                 <div class="carousel-inner mx-auto">
-                    <div id="new">
-                        <x-movies :movies="$movies['new']" />
-                    </div>
-
-                    <div id="most-visit" class="d-none">
-                        <x-movies :movies="$movies['most_visit']" />
-                    </div>
+                    <div id="carousel-container"></div>
                 </div>
 
-                
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 </button>
@@ -75,25 +68,49 @@
         </section>
 
         <script>
-            const buttons = document.querySelectorAll('#menu-categoria button.category-button');
+            const allMovies = @json($movies);
 
-            buttons.forEach(button => {
+            const container = document.getElementById('carousel-container');
 
-                button.addEventListener('click', function(event) {
+            function renderMovies(category) {
+                const movies = allMovies[category];
 
-                    const targetId = this.dataset.target;
+                let html = '';
+                for (let i = 0; i < movies.length; i += 4) {
+                    const group = movies.slice(i, i + 4);
 
-                    document.querySelectorAll('.carousel-inner > div').forEach(div => {
-                        div.classList.add('d-none');
-                    });
+                    html += `
+                        <div class="carousel-item ${i === 0 ? 'active' : ''}">
+                            <div class="d-flex justify-content-between gap-2">
+                                ${group.map(movie => `
+                                    <a href="#">
+                                        <div class="position-relative rounded">
+                                            <div class="w-100 position-absolute z-2 d-flex justify-content-between">
+                                                <p class="text-light fs-4 fw-bold px-3 py-4">${movie.year}</p>
+                                                <p class="text-light fs-4 fw-bold px-3 py-4">${movie.translated ? 'DUB' : 'LEG'}</p>
+                                            </div>
+                                            <div class="card-content">
+                                                <img src="${movie.image_path}" alt="${movie.title}" class="card-container_image">
+                                            </div>
+                                        </div>
+                                    </a>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
 
-                    const targetDiv = document.getElementById(targetId);
+                container.innerHTML = html;
+            }
 
-                    if (targetDiv) {
-                        targetDiv.classList.remove('d-none');
-                    }
+            document.querySelectorAll('#menu-categorias button.category-button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const categoria = this.dataset.target;
+                    renderMovies(categoria);
                 });
             });
+
+            renderMovies('new');
         </script>
     </x-slot:content>
 </x-layouts.main_layout>
