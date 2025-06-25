@@ -18,3 +18,4 @@ Route::middleware('auth')->group(function(){
     
 Route::get('/home', [MainController::class, 'home'])->name('home');
 Route::view('/about', 'about')->name('about');
+Route::get('/show/{token}', [MainController::class, 'showFilm'])->name('show');
