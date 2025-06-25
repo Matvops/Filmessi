@@ -45,7 +45,7 @@
             </div>
         </section>
 
-        <section class="mt-4 bg-black w-75 mx-auto">
+        <section class="mt-4 bg-black w-75 mx-auto pb-4">
             <ul id="menu-categorias" class="list-unstyled m-0 p-0 d-flex justify-content-around py-3 bg-dark-blue">
                 <li><button class="text-decoration-none text-light fs-4 category-button" data-target='new'>Lançamentos</button></li>
                 <li><button class="text-decoration-none text-light fs-4 category-button" data-target='most_visit'>Mais Vistos</button></li>
@@ -69,12 +69,12 @@
 
         <script>
             const allMovies = @json($movies);
-
             const container = document.getElementById('carousel-container');
 
             function renderMovies(category) {
                 const movies = allMovies[category];
-
+                const routeShow = '/show/:id';
+                
                 let html = '';
                 for (let i = 0; i < movies.length; i += 4) {
                     const group = movies.slice(i, i + 4);
@@ -83,7 +83,7 @@
                         <div class="carousel-item ${i === 0 ? 'active' : ''}">
                             <div class="d-flex justify-content-between gap-2">
                                 ${group.map(movie => `
-                                    <a href="#">
+                                    <a href="${routeShow.replace(':id', movie.film_id)}">
                                         <div class="position-relative rounded">
                                             <div class="w-100 position-absolute z-2 d-flex justify-content-between">
                                                 <p class="text-light fs-4 fw-bold px-3 py-4">${movie.year}</p>
