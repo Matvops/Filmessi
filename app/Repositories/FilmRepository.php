@@ -6,6 +6,7 @@ use App\Exceptions\NotFoundException;
 use App\Models\Film;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\DB;
 
 class FilmRepository {
 
@@ -37,6 +38,15 @@ class FilmRepository {
         } catch (ModelNotFoundException) {
             throw new NotFoundException("Falha ao carregar filme");
         }
+    }
+
+    public function isFavorite($filmId, $userId)
+    {
+        return DB::table('films')
+                    ->join('favorites', 'favorites.favorite_film_id', '=', 'films.film_id') 
+                    ->where('favorite_film_id', $filmId)
+                    ->where('favorite_user_id', $userId)
+                    ->exists();
     }
 
 }

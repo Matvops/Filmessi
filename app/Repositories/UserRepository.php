@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Exceptions\AuthException;
+use App\Exceptions\NotFoundException;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -28,6 +29,15 @@ class UserRepository {
 
         } catch (ModelNotFoundException) {
             throw new AuthException("Token inválido!");
+        }
+    }
+
+    public function getUserByEmail(string $email): User
+    {
+        try {
+            return User::where('email', $email)->firstOrFail();
+        } catch (ModelNotFoundException) {
+            throw new NotFoundException("Email inválido!");
         }
     }
 }
