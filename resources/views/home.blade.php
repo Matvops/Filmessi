@@ -39,9 +39,11 @@
         </header>
 
         <section class="mx-auto">
-            <div class="main_image img-fluid d-flex align-items-end" style="background-image: url('{{asset('storage/images/av.jpg')}}');">
+            <div class="main_image img-fluid d-flex align-items-center flex-column justify-content-center py-2" style="background-image: url('{{asset('storage/images/av.jpg')}}');">
+                 <h1 class="text-light kantumruy fw-bold display-5 text_image py-5">Vingadores: Guerra Infinita</h1>
                  <div class="mx-auto text-center py-5">
-                    <a href="#" class="btn btn-info px-4 py-2 fs-4">Assista</a>
+                    <a href="https://www.linkedin.com/in/matheus-cadenassi-799125321/" class="btn btn-info px-4 py-2 fs-4">Assista</a>
+                 </div>
             </div>
         </section>
 
@@ -86,8 +88,8 @@
                                     <a href="${routeShow.replace(':id', movie.film_id)}">
                                         <div class="position-relative rounded">
                                             <div class="w-100 position-absolute z-2 d-flex justify-content-between">
-                                                <p class="text-light fs-4 fw-bold px-3 py-4">${movie.year}</p>
-                                                <p class="text-light fs-4 fw-bold px-3 py-4">${movie.translated ? 'DUB' : 'LEG'}</p>
+                                                <p class="text-light fs-4 fw-bold px-3 py-4 text_image">${movie.year}</p>
+                                                <p class="text-light fs-4 fw-bold px-3 py-4 text_image">${movie.translated ? 'DUB' : 'LEG'}</p>
                                             </div>
                                             <div class="card-content">
                                                 <img src="${movie.image_path}" alt="${movie.title}" class="card-container_image">
