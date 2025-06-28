@@ -1,5 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import "bootstrap-icons/font/bootstrap-icons.css";
+
+@keyframes apagaToast {
+    0% {
+        opacity: 1;
+    }
+    66% { 
+        opacity: 1;
+    }
+    100% { 
+      opacity: 0;
+    }
+}
+
+.apaga-toast {
+    animation: apagaToast 1.5s forwards;
+}
+
 html, body {
     height: 100vh;
 }
@@ -47,7 +64,7 @@ html, body {
 .main_image {
     height: 600px !important;
     max-height: 700px !important;
-    opacity: 0.9;
+    opacity: 0.8;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -95,4 +112,8 @@ html, body {
     transition:opacity;
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
+}
+
+.text_image {
+    text-shadow: 0px 2px 6px #04001B;
 }
