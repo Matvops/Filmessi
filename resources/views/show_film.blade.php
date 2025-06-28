@@ -1,4 +1,4 @@
-<x-layouts.main_layout title="Filme genérico">
+<x-layouts.main_layout title="{{ $film->title }}">
     <x-slot:content>
         <header class="bg-top-header">
             
@@ -31,7 +31,7 @@
                             <a class="nav-link text-light fs-5 nav-hover" href="{{ route('home') }}">Filmes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light fs-5 nav-hover" href="#">Favoritos</a>
+                            <a class="nav-link text-light fs-5 nav-hover" href="{{ route('favorites') }}">Favoritos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light fs-5 nav-hover" href="{{ route('about') }}">Sobre</a>
