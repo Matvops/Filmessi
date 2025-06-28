@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as AuthUser;
 
 class User extends AuthUser
@@ -23,4 +24,9 @@ class User extends AuthUser
         'updated_at',
         'deleted_at',
     ];
+
+    public function films(): BelongsToMany
+    {
+        return $this->belongsToMany(Film::class, 'favorites', 'favorite_user_id', 'favorite_film_id');
+    }
 }
