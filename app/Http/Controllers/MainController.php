@@ -47,4 +47,11 @@ class MainController extends Controller
 
         return back();
     }
+
+    public function showFavorites(): View
+    {
+        $response = $this->mainService->getFavorites();
+
+        return view('favorites', ['films' => $response->getData()]);
+    }
 }

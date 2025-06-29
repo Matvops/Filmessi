@@ -82,4 +82,12 @@ class MainService {
             return Response::getResponse(false, $e->getMessage());
         }
     }
+
+    public function getFavorites(): Response
+    {
+        $user = $this->userRepository->getUserByEmail(Auth::user()->email);
+        $favorites = $this->userRepository->getFavorites($user->user_id);
+
+        return Response::getResponse(true, '', $favorites);
+    }
 }

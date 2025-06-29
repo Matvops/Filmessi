@@ -18,7 +18,7 @@
                             <a class="nav-link text-light fs-5 nav-hover" href="{{ route('home') }}">Filmes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light fs-5 nav-hover" href="#">Favoritos</a>
+                            <a class="nav-link text-light fs-5 nav-hover" href="{{ route('favorites') }}">Favoritos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light fs-5 nav-hover" href="{{ route('about') }}">Sobre</a>

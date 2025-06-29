@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Exceptions\AuthException;
 use App\Exceptions\NotFoundException;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class UserRepository {
@@ -39,5 +40,10 @@ class UserRepository {
         } catch (ModelNotFoundException) {
             throw new NotFoundException("Email inválido!");
         }
+    }
+
+    public function getFavorites(int $id): Collection
+    {
+        return User::find($id)->films;
     }
 }
