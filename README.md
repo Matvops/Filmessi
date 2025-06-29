@@ -164,43 +164,37 @@ Inicie o servidor local:
 
 Abaixo estão algumas funcionalidades do projeto.
 
-<h3>• Login <br>• Cadastro</h3>
+<h3>• Cadastro <br>• Confirmação de email</h3>
 <div>
-    <img src="https://github.com/user-attachments/assets/434e1911-6512-4f32-ab17-3c92f1d01b29" width="49%">
-    <img src="https://github.com/user-attachments/assets/208d513f-c9c7-4da1-ae69-f25d7a78d8a3" width="49%">
+    <img src="https://github.com/user-attachments/assets/b632d9ef-9d1f-420e-8eeb-55c750a3251a" width="49%">
+    <img src="https://github.com/user-attachments/assets/442aaf73-0b8b-47aa-b863-a85e48ae943d" width="49%">
 </div>
 
 <br>
 
-<h2>• Recuperar conta <br>• Redefinir senha</h2>
+<h2>• Tela home <br>• Tela de filmes favoritados</h2>
 <div>
-    <img src="https://github.com/user-attachments/assets/8c8ff991-3461-410a-86cf-eef6de747538" width="49%">
-    <img src="https://github.com/user-attachments/assets/a7f5a220-dc27-4d2b-a007-7a6c1732b43e" width="49%">
+    <img src="https://github.com/user-attachments/assets/2aa7ad05-47d0-4e3d-ae64-e4c62e3376d0" width="49%">
+    <img src="https://github.com/user-attachments/assets/2b5f3db6-e44a-40d6-86e5-8ea5e7ee5351" width="49%">
 </div>
 
 <br>
 
-<h2>• Listar produtos <br>• Pesquisar/Filtrar <br>• Adicionar protudos ao carrinho</h2>
+<h2>• Visualização de filme <br>• Tela sobre</h2>
 <div>
-    <img src="https://github.com/user-attachments/assets/6aab1bb4-1a53-4146-80f8-0d5f006490b1" width="49%">
-    <img src="https://github.com/user-attachments/assets/1813ed91-a210-4a7b-9a14-8142790e0789" width="49%">
+    <img src="https://github.com/user-attachments/assets/1c7e1fda-628b-46f2-ace3-62820c20ce0d" width="49%">
+    <img src="https://github.com/user-attachments/assets/45245656-d0dd-47a9-b67a-b0ba8f4d4cbd" width="49%">
 </div>
 
 <br>
 
-<h2>• Remover produtos do carrinho <br>• Finalizar pedido <br>• Listar produtos do carrinho</h2>
+<h2>• Tela home - GIF</h2>
 <div>
-    <img src="https://github.com/user-attachments/assets/14b8b790-2412-49a3-a270-337a1c4e9af6">
+    <img src="https://github.com/user-attachments/assets/50b68e41-f6e1-439a-895e-c11c9bdacfda">
 </div>
 
 <br>
 
-<h2>• Listar pedidos <br>• Atualizar email e nome de usuário</h2>
-<div>
-    <img src="https://github.com/user-attachments/assets/ef629bca-026d-4474-8f21-abcfd4ad491a">
-</div>
-
-<br>
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
