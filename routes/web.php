@@ -16,6 +16,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/logout', [AuthController::class, 'logout'])->name("logout");
     Route::get('/show/{token}', [MainController::class, 'showFilm'])->name('show');
     Route::post('/favorite', [MainController::class, 'favoriteFilm'])->name('favorite');
+    Route::get('/show_favorites', [MainController::class, 'showFavorites'])->name('favorites');
 });
     
 Route::get('/home', [MainController::class, 'home'])->name('home');
