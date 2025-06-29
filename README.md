@@ -167,7 +167,7 @@ Abaixo estão algumas funcionalidades do projeto.
 <h3>• Cadastro <br>• Confirmação de email</h3>
 <div>
     <img src="https://github.com/user-attachments/assets/b632d9ef-9d1f-420e-8eeb-55c750a3251a" width="49%">
-    <img src="https://github.com/user-attachments/assets/442aaf73-0b8b-47aa-b863-a85e48ae943d" width="49%">
+    <img src="https://github.com/user-attachments/assets/258c1018-b93e-4b80-a4aa-9d71ca49c63f" width="49%">
 </div>
 
 <br>
@@ -179,6 +179,7 @@ Abaixo estão algumas funcionalidades do projeto.
 </div>
 
 <br>
+
 
 <h2>• Visualização de filme <br>• Tela sobre</h2>
 <div>
