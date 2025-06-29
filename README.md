@@ -188,10 +188,9 @@ Abaixo estão algumas funcionalidades do projeto.
 
 <br>
 
-<h2>• Tela home - GIF</h2>
-<div>
-    <img src="https://github.com/user-attachments/assets/50b68e41-f6e1-439a-895e-c11c9bdacfda">
-</div>
+<h2>• Tela home</h2>
+
+https://github.com/user-attachments/assets/5e6c5345-e9c2-46f9-8e1e-3e51a381d058
 
 <br>
 
