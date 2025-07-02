@@ -12,4 +12,9 @@ class PanelController extends Controller
     {
         return view('panel');
     }
+
+    public function register(): View
+    {
+        return view('register_film');
+    }
 }
