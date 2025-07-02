@@ -1,43 +1,7 @@
 <x-layouts.main_layout title="Home">
     <x-slot:content>
-        <header class="bg-top-header">
-            <div class="d-flex justify-content-between align-items-center py-2 px-3">
-                <h1>
-                    <a href="{{ route('home') }}" class="text-light display-2 text-decoration-none">FILMESSI</a>
-                <h1>
-                @guest
-                    <div>
-                        <a href="{{ route('login') }}" class="btn btn-primary px-4 py-2 fs-5">Entrar</a>
-                    </div>
-                @endguest
-                @auth
-                    <div>
-                        <a href="{{ route('logout') }}" class="btn btn-primary px-4 py-2 fs-5">Sair</a>
-                    </div>
-                @endauth
-            </div>
-            <nav class="navbar bg-bottom-header">
-                <div class="container-fluid">
-                    <ul class="list-unstyled m-0 p-0 d-flex gap-3">
-                        <li class="nav-item">
-                            <a class="nav-link text-light fs-5 nav-hover" href="{{ route('home') }}">Filmes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light fs-5 nav-hover" href="{{ route('favorites') }}">Favoritos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light fs-5 nav-hover" href="{{ route('about') }}">Sobre</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input type="search" placeholder="Pesquisar" aria-label="Search"
-                                class="me-2 text-light bg-bottom-header outline-none focus-ring shadow-none 
-                                border-top-0 border-end-0 border-start-0 fs-5"/>
-                    </form>
-                </div>
-            </nav>
-        </header>
-
+        <x-header />
+        
         <section class="mx-auto">
             <div class="main_image img-fluid d-flex align-items-center flex-column justify-content-center py-2" style="background-image: url('{{asset('storage/images/av.jpg')}}');">
                  <h1 class="text-light kantumruy fw-bold display-5 text_image py-5">Vingadores: Guerra Infinita</h1>
