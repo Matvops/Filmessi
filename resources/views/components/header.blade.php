@@ -23,6 +23,13 @@
                 <li class="nav-item">
                     <a class="nav-link text-light fs-5 nav-hover" href="{{ route('favorites') }}">Favoritos</a>
                 </li>
+                @auth
+                    @can('user_is_admin')
+                        <li class="nav-item">
+                            <a class="nav-link text-light fs-5 nav-hover" href="{{ route('panel') }}">Painel</a>
+                        </li>
+                    @endcan
+                @endauth
                 <li class="nav-item">
                     <a class="nav-link text-light fs-5 nav-hover" href="{{ route('about') }}">Sobre</a>
                 </li>
