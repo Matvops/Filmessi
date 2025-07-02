@@ -91,7 +91,7 @@
                         </div>
 
                         <div class="w-full d-flex gap-3"> 
-                            <a href="#" class="btn btn-danger fw-semibold fs-5">Voltar</a>
+                            <a href="{{ route('panel') }}" class="btn btn-danger fw-semibold fs-5">Voltar</a>
                             <button type="submit" class="btn btn-primary fw-semibold fs-5">Cadastrar</button>
                         </div>
                     </fieldset>

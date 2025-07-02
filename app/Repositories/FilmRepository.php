@@ -49,4 +49,9 @@ class FilmRepository {
                     ->exists();
     }
 
+    public function getAll(): Collection
+    {
+        return Film::all();
+    }
+
 }
