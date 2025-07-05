@@ -25,6 +25,8 @@ Route::middleware(['auth', UserIsAdmin::class])->group(function() {
     Route::get('/panel', [PanelController::class, 'panel'])->name('panel');
     Route::get('/register_film', [PanelController::class, 'register'])->name('register_film');
     Route::post('/register_film', [PanelController::class, 'storeFilm'])->name('store_film');
+    Route::get('/update_film/{token}', [PanelController::class, 'updateView'])->name('update_view_film');
+    Route::post('/update_film', [PanelController::class, 'update'])->name('update_film');
 });
     
 Route::get('/home', [MainController::class, 'home'])->name('home');
