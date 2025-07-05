@@ -5,7 +5,12 @@
                 <form action="{{route('store_film')}}" method="POST" autocomplete="off" enctype="multipart/form-data">
 
                     @csrf
-                    <legend class="text-light fw-medium display-6 mb-1">Cadastro</legend>
+                    <div class="d-flex align-items-end">
+                        <legend class="text-light fw-medium display-6 mb-1">Cadastrar</legend>
+                        @if(session('register_error'))
+                            <p class="text-danger w-100 text-end fs-5">{{session('register_error')}}</p>
+                        @endif
+                    </div>
 
                     <fieldset>
 
