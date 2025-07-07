@@ -187,6 +187,13 @@ Abaixo estão algumas funcionalidades do projeto.
     <img src="https://github.com/user-attachments/assets/45245656-d0dd-47a9-b67a-b0ba8f4d4cbd" width="49%">
 </div>
 
+<h2>• Painel administrativo <br>• Cadastro de filmes <br>• Atualizaçãp de filmes</h2>
+<div>
+    <img src="https://github.com/user-attachments/assets/e2767dce-5b1f-46f5-a4be-05e74b3d8bfa" width="33%">
+    <img src="https://github.com/user-attachments/assets/b3063ba6-9e83-48b9-9dda-5e158e45b327" width="33%">
+    <img src="https://github.com/user-attachments/assets/1ecf6e41-79fe-4a61-b1be-ed58ec356877" width="33%">
+</div>
+
 <br>
 
 <h2>• Tela home</h2>
@@ -206,7 +213,7 @@ https://github.com/user-attachments/assets/5e6c5345-e9c2-46f9-8e1e-3e51a381d058
 
 [x] - Autenticação com confirmação de e-mail
 
-[] - Autorização com Gates
+[x] - Autorização com Gates
 
 [] - Integração avançada com JavaScript
 
