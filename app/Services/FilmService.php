@@ -5,10 +5,12 @@ namespace App\Services;
 use App\Exceptions\NotFoundException;
 use App\Models\Film;
 use App\Repositories\FilmRepository;
+use App\Repositories\UserRepository;
 use App\Utils\Response;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use InvalidArgumentException;
@@ -16,12 +18,28 @@ use InvalidArgumentException;
 class FilmService {
 
     private FilmRepository $filmRepository;
+    private UserRepository $userRepository;
 
-    function __construct(FilmRepository $filmRepository)
+    function __construct(FilmRepository $filmRepository, UserRepository $userRepository)
     {
         $this->filmRepository = $filmRepository;
+        $this->userRepository = $userRepository;
     }
 
+    public function show($token): Response
+    {
+        try {
+            $id = Crypt::decrypt($token);
+
+            $film = $this->filmRepository->getFilmById($id);
+            $user = $this->userRepository->getUserByEmail(Auth::user()->email);
+            $film->favorite = $this->filmRepository->isFavorite($id,  $user->user_id);
+           
+            return Response::getResponse(true, '', $film);
+        } catch (NotFoundException $e) {
+            return Response::getResponse(false, $e->getMessage());
+        }
+    }
 
     public function register($inputs, UploadedFile $image): Response
     {
