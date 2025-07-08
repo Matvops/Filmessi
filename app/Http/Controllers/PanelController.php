@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreFilmRequest;
-use App\Http\Requests\UpdateFilmRequest;
 use App\Services\PanelService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -31,23 +29,7 @@ class PanelController extends Controller
         return view('register_film', ['categories' => $categories]);
     }
 
-    public function storeFilm(StoreFilmRequest $request)
-    {
-        $inputs = $request->input();
-        $image = $request->file('image');
-
-        $response = $this->panelService->register($inputs, $image);
-
-        if(!$response->getStatus()) {
-            return back()
-                    ->withInput()
-                    ->with('register_error', $response->getMessage());
-        }
-
-        return redirect()->route('panel');
-    }
-
-    public function updateView($token): View|RedirectResponse
+    public function update($token): View|RedirectResponse
     {
         $response = $this->panelService->getFilm($token);
 
@@ -60,21 +42,5 @@ class PanelController extends Controller
         $categories = $this->panelService->getAllCategories();
 
         return view('update_film', ['film' => $response->getData(), 'categories' => $categories]);
-    }
-
-    public function update(UpdateFilmRequest $request): RedirectResponse
-    {
-        $inputs = $request->input();
-        $image = $request->hasFile('image') ? $request->file('image') : null;
-        
-        $response = $this->panelService->update($inputs, $image);
-
-        if(!$response->getStatus()) {
-            return back()
-                    ->withInput()
-                    ->with('update_error', $response->getMessage());
-        }
-
-        return redirect()->route('panel');
     }
 }
