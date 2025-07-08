@@ -17,9 +17,9 @@ Route::middleware('guest')->group(function(){
 
 Route::middleware('auth')->group(function(){
     Route::get('/logout', [AuthController::class, 'logout'])->name("logout");
-    Route::get('/show/{token}', [MainController::class, 'showFilm'])->name('show');
     Route::post('/favorite', [MainController::class, 'favoriteFilm'])->name('favorite');
     Route::get('/show_favorites', [MainController::class, 'showFavorites'])->name('favorites');
+    Route::get('/show/{token}', [FilmController::class, 'show'])->name('show');
 });
 
 Route::middleware(['auth', UserIsAdmin::class])->group(function() {
