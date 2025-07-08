@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PanelController;
@@ -17,8 +18,8 @@ Route::middleware('guest')->group(function(){
 
 Route::middleware('auth')->group(function(){
     Route::get('/logout', [AuthController::class, 'logout'])->name("logout");
-    Route::post('/favorite', [MainController::class, 'favoriteFilm'])->name('favorite');
-    Route::get('/show_favorites', [MainController::class, 'showFavorites'])->name('favorites');
+    Route::post('/favorite', [FavoriteController::class, 'favoriteFilm'])->name('favorite');
+    Route::get('/show_favorites', [FavoriteController::class, 'showFavorites'])->name('favorites');
     Route::get('/show/{token}', [FilmController::class, 'show'])->name('show');
 });
 
