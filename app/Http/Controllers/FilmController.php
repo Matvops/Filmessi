@@ -6,7 +6,7 @@ use App\Http\Requests\StoreFilmRequest;
 use App\Http\Requests\UpdateFilmRequest;
 use App\Services\FilmService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class FilmController extends Controller
 {
@@ -15,6 +15,19 @@ class FilmController extends Controller
     function __construct(FilmService $service)
     {
         $this->filmService = $service;
+    }
+
+    public function show($token): View|RedirectResponse
+    {
+        $response = $this->filmService->show($token);
+
+        if(!$response->getStatus()) {
+            return back()
+                    ->withInput()
+                    ->with('show_error', $response->getMessage());
+        }
+
+        return view('show_film', ['film' => $response->getData()]);
     }
 
     public function register(StoreFilmRequest $request)
