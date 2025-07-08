@@ -22,19 +22,6 @@ class MainController extends Controller
         return view('home', ['movies' => $movies]);
     }
 
-    public function showFilm($token): View|RedirectResponse
-    {
-        $response = $this->mainService->showFilm($token);
-
-        if(!$response->getStatus()) {
-            return back()
-                    ->withInput()
-                    ->with('show_error', $response->getMessage());
-        }
-
-        return view('show_film', ['film' => $response->getData()]);
-    }
-
     public function favoriteFilm(FavoriteFilmRequest $request): RedirectResponse
     {
         $response = $this->mainService->favoriteFilm($request->favorite, $request->film_id);
