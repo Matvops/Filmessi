@@ -40,22 +40,15 @@ class MainService {
         return $this->filmRepository->getMostVisitMovies();
     }
 
-    public function showFilm($token): Response
+    public function getFavorites(): Response
     {
-        try {
-            $id = Crypt::decrypt($token);
+        $user = $this->userRepository->getUserByEmail(Auth::user()->email);
+        $favorites = $this->userRepository->getFavorites($user->user_id);
 
-            $film = $this->filmRepository->getFilmById($id);
-            $user = $this->userRepository->getUserByEmail(Auth::user()->email);
-            $film->favorite = $this->filmRepository->isFavorite($id,  $user->user_id);
-           
-            return Response::getResponse(true, '', $film);
-        } catch (NotFoundException $e) {
-            return Response::getResponse(false, $e->getMessage());
-        }
+        return Response::getResponse(true, '', $favorites);
     }
 
-    public function favoriteFilm($isFavorite, $filmIdEcnrypted): Response
+     public function favoriteFilm($isFavorite, $filmIdEcnrypted): Response
     {
         try {
 
@@ -81,13 +74,5 @@ class MainService {
             DB::rollBack();
             return Response::getResponse(false, $e->getMessage());
         }
-    }
-
-    public function getFavorites(): Response
-    {
-        $user = $this->userRepository->getUserByEmail(Auth::user()->email);
-        $favorites = $this->userRepository->getFavorites($user->user_id);
-
-        return Response::getResponse(true, '', $favorites);
     }
 }
